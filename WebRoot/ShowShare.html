@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SuperCally | Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <link href="css/styling.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/glyphicons.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.min.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/icons.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/slidebar.css" rel="stylesheet" type="text/css" media="all" />
+
+
+
+    <link href="css/Mine.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/echarts-plain-map.js"></script>
+</head>
+<body>
+    <div id="undefined-sticky-wrapper" class="sticky-wrapper" style="height: 78px;">
+        <nav id="nav" class="nav_wrapper" >
+            <div class="wrap">
+                <div class="logo"><img src="images/logo1.png" alt="logo" /></div>
+                <a href="#" class="header_toggle">Menu</a>
+                <ul class="navigation">
+                    <li><a href="./index">首页</a></li>
+                    <li class="./home"><a href="">仪表盘</a></li>
+                    <li onmousemove="showTheam();">
+                        <a href=" ">专题</a>
+                        <ul id="theam" style="display: none;height:50px">
+                            <li><a href="./ebuy">电商</a></li>
+                            <li><a href="./social">社交</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://localhost/discuz/forum.php">论坛</a></li>
+                    <!--
+                    <li class="scroll"><a href="#portfolio">Portfolio</a></li>
+                    <li class="scroll"><a href="#contact">Contact</a></li>
+                    <div class="clear"> </div>
+                        -->
+                </ul>
+                <div class="social_icons">
+                    <ul>
+                        <li style="padding-top:0.8em;font-family:'Segoe UI'"><a href="#"> Super_Cally</a></li>
+                        <li><a href=""><img src="img/headico.gif" style="border-radius: 10px" /></a></li>
+
+                    </ul>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </nav>
+    </div>
+    <div class="sidebar btn-info" style="width: 15%; margin-left: 4%; margin-top: 50px; position: fixed;display:none">
+
+        <div class="larg-wite-text center" style="text-shadow: 1px 1px 2px #000; padding-top: 20px">选择图表</div>
+        <!-- Navigation menu list -->
+        <ul id="leftside" class="list-unstyled list" >
+
+            <li onclick="selectIt('bar')"><a class="anchorLink larg-wite-text"><i class="icon-home scolor"></i> 柱状图</a></li>
+            <li onclick="selectIt('line')"><a class="anchorLink larg-wite-text"><i class="icon-user scolor"></i> 折线图</a></li>
+            <li onclick="selectIt('pie')"><a class="anchorLink larg-wite-text"><i class="icon-retweet scolor"></i> 饼状图</a></li>
+            <li onclick="selectIt('scatter')"><a class="anchorLink larg-wite-text"><i class="icon-road scolor"></i> 散点图</a></li>
+            <li onclick="selectIt('radar')"><a class="anchorLink larg-wite-text"><i class="icon-road scolor"></i> 雷达图</a></li>
+            <li onclick="selectIt('map')"><a class="anchorLink larg-wite-text"><i class="icon-info scolor"></i> 地图</a></li>
+            <li onclick="selectIt('wordcloud')"><a class="anchorLink larg-wite-text"><i class="icon-gift scolor"></i> 字云</a></li>
+            <li onclick="selectIt('timelinePie')"><a class="anchorLink larg-wite-text"><i class="icon-gift scolor"></i> 时间饼图</a></li>
+
+
+        </ul>
+        <!-- Social media links -->
+
+    </div>
+
+
+    <script src="js/cloud/Un.js"></script>
+    <script src="js/cloud/unicode.js"></script>
+    <script src="js/cloud/d3.layout.cloud.js"></script>
+    <script src="js/cloud/cloud.js"></script>
+    <script>
+        function showTheam() {
+            //alert($('#theam').css('display'));
+            $('#theam').slideDown();
+
+        }
+        function hideTheam() {
+            $('#theam').slideUp();
+        }
+        /*
+        // 路径配置
+        require.config({
+            paths: {
+                'echarts': 'http://echarts.baidu.com/build/echarts',
+                'echarts/chart/bar': 'http://echarts.baidu.com/build/echarts'
+            }
+        });*/
+        $.ajaxSetup({
+            async: false
+        });
+
+        function getRequest() {
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        function getId() {
+            var requestObj = new Object();
+            requestObj = getRequest();
+
+            var id = requestObj['id'];
+            return id;
+        }
+
+        var colorMap = ["dblue", "blue", "yellow", "green", "red", "purple", "orange", "cblue", "cyellow", "cgreen", "cred", "cdblue", "cpurple", "corange"];
+        var fMap = { 'bar': '柱状图', 'line': '折线图', "pie": "饼图", "scatter": "散点图", "radar": "雷达图", "map": "地图", "wordcloud": "字云", "timelinePie": "时间饼图" };
+        var chartCache = {};
+        var count = 0;
+        function addChart(chart) {
+            var color_css = colorMap[Math.floor(Math.random() * colorMap.length)];
+            var html =
+                   ' <div id="' + chart + '" style="width:49%;display: inline-block; margin-top:10px;">' +
+                       ' <div class="head ' + color_css + '">' +
+                           ' <h2 class="mid-wite-text">' + fMap[chart] + '</h2>' +
+                           ' <ul class="buttons">' +
+                              '  <li><a href="#" onclick=""><div class="icon"><span class="ico-info"></span></div></a></li>' +
+                              ' <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>' +
+                              '  <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li>' +
+                           ' </ul>' +
+                       ' </div>' +
+                       ' <div class="data-show" style="min-height:400px">' +
+
+                           ' <div id="' + chart + 'Bord" style="height:400px"></div>' +
+
+                       ' </div>' +
+                   ' </div>';
+         //   alert(html);
+            $('#showBord').append(html);
+           // alert(html);
+            //showChart(chart);
+            loadChart(chart);
+
+
+        }
+        function showChart(chart) {
+            $('#' + chart).slideDown();
+        }
+        function hideChart(chart) {
+            $('#' + chart).slideUp("slow", setSize);
+        }
+
+        function selectIt( chart) {
+             if (count <= 5) {
+                count++;
+              //  it.style['background-color'] = '#4666CA';
+                if ($('#' + chart).length > 0) showChart(chart);
+                else {
+                    addChart(chart);
+
+                }
+                setSize();
+            }
+
+
+
+            //loadChart(chart);
+
+        }
+        function setSize() {
+            var Allshow = $('#showBord').children();
+            var cnt = 0;
+            var notClose = new Array();
+            for (var i = 0; i < Allshow.length; i++) //alert(i);
+            {
+                var item = Allshow[i];
+                if (item.style.display != 'none') {
+                    notClose[cnt] = item;
+                    cnt++;
+                }
+            }
+            if (count == 1) {
+                notClose[0].style.width = '100%';
+                loadChart(notClose[0].id);
+            }
+            else if (count == 2) {
+                notClose[0].style.width = '100%';
+                notClose[1].style.width = '100%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+            }
+            else if (count == 3) {
+                notClose[0].style.width = '49%';
+                notClose[1].style.width = '49%';
+                notClose[2].style.width = '100%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+                loadChart(notClose[2].id);
+            }
+            else if (count == 4) {
+                notClose[0].style.width = '49%';
+                notClose[1].style.width = '49%';
+                notClose[2].style.width = '49%';
+                notClose[3].style.width = '49%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+                loadChart(notClose[2].id);
+                loadChart(notClose[3].id);
+            }
+            else if (count == 5) {
+                notClose[0].style.width = '49%';
+                notClose[1].style.width = '49%';
+                notClose[2].style.width = '100%';
+                notClose[3].style.width = '49%';
+                notClose[4].style.width = '49%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+                loadChart(notClose[2].id);
+                loadChart(notClose[3].id);
+                loadChart(notClose[4].id);
+            }
+        }
+        function loadChart(chart) {
+            if (chartCache[chart] != null) {
+                if (chart != 'wordcloud') {
+                    var myChart = echarts.init(document.getElementById(chart + "Bord"));
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(chartCache[chart]);
+
+                }
+                else {
+                    $("#word0").remove();
+                    $("#word0").remove();
+                    getrequst(chartCache[chart], chart + "Bord");
+                }
+
+            }
+            else {
+                var file = getId();
+                if (chart != 'wordcloud') {
+                    var myChart = echarts.init(document.getElementById(chart + "Bord"));
+                    myChart.showLoading({
+                        text: 'whirling',
+                        effect: 'whirling',
+                        textStyle: {
+                            fontSize: 50
+                        }
+                    });
+
+                    $.post("./show",
+                    {
+                        'filename': file,
+                        'chart': chart
+                    },
+                    function (data, status) {
+
+                        var option = eval('(' + data + ')');
+                        /*
+                        clearTimeout(loadingTicket);
+                        loadingTicket = setTimeout(function () {*/
+                        myChart.hideLoading();
+                        // 为echarts对象加载数据
+                        myChart.setOption(option);
+                        /*}, 1000);*/
+                        myChart.hideLoading();
+
+                        chartCache[chart] = option;
+                    }
+                    );
+                }
+                else {
+
+                    $.post("./show",
+                    {
+                        'filename': file,
+                        'chart': chart
+                    },
+                    function (data, status) {
+                        var option = eval('(' + data + ')');
+                        $("#word0").remove();
+                        $("#word0").remove();
+                        getrequst(option, chart + "Bord");
+                        chartCache[chart] = option;
+                    }
+                    );
+                }
+            }
+        }
+        
+        function seveshare()
+        {
+            var requestObj = new Object();
+            requestObj = getRequest();
+
+            var selStr = requestObj['select'];
+            
+            var list = selStr.split(",");
+            var side = $('#leftside').children();
+                       //$('#leftside').children();
+            for(var i=0;i<list.length-1;i++)
+            {
+                side[list[i]].click();
+                //selectIt(side[list[i]],'line');
+                //selectIt('line');
+                //alert($('#leftside').children()[1].html());
+            }
+        }
+        
+        function oneShare()
+        {
+            var url = window.location.href;
+
+            var name = prompt("说点什么再分享吧~", "分享：");
+
+            $.post("./servlet/postHelp",
+            {
+                'title': name,
+                'msg':'<iframe src="'+url+'" style="width:100%;height:1000px"></iframe>',
+            },
+            function (data, status) {
+                window.open("http://localhost/discuz/forum.php?mod=forumdisplay&fid=2");
+                
+            });
+        }
+
+        
+    </script>
+
+
+
+
+    
+    
+    <div  style="width: 95%; min-height:1000px; margin: auto;  background-color: #eeeeee; border-radius: 5px ;padding:5px,5px,5px">
+        <div style="width:98%;height:50px;margin:auto">
+            <div class="bdsharebuttonbox" style="display:inline-block;float:left"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "32" }, "share": {}, "image": { "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            
+            <button class="btn btn-block btn-info btn-icon glyphicons share_alt" style="float:right;width:150px;margin-top:5px" onclick="oneShare()"><i></i>一键分享至论坛</button>
+            <button class="btn btn-block btn-success btn-icon glyphicons iphone" style="float:right;width:150px;margin-top:5px ;margin-right:5px" onclick="showBg();"><i></i>移动设备查看</button>
+        </div>
+        <div id="showBord">
+
+
+        </div>
+        
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            margin: 0;
+        }
+        #main {
+            height: 1800px;
+            padding-top: 90px;
+            text-align: center;
+        }
+        #fullbg {
+            background-color: gray;
+            left: 0;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            z-index: 3;
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            -khtml-opacity: 0.5;
+        }
+        #dialog {
+            background-color: #fff;
+            border: 5px solid rgba(0,0,0, 0.4);
+            height: 400px;
+            left: 50%;
+            margin: -200px 0 0 -200px;
+            padding: 1px;
+            position: fixed !important; /* 浮动对话框 */
+            position: absolute;
+            top: 50%;
+            width: 400px;
+            z-index: 5;
+            border-radius: 5px;
+            display: none;
+        }
+        #dialog p {
+            margin: 0 0 12px;
+            height: 24px;
+            line-height: 24px;
+            background: #CCCCCC;
+        }
+
+        #dialog p.close {
+            text-align: right;
+            padding-right: 10px;
+        }
+        #dialog p.close a {
+            color: #fff;
+            text-decoration: none;
+        } 
+    </style>
+
+
+ 
+
+        <div id="fullbg" style="display:none"></div>
+        <div id="dialog" style="display:none">
+        <p class="close">
+            <a href="#" style="color:#000" onclick="closeBg();">关闭</a>
+            <div>
+                <div style="width:100%;height : 50px;font-size:15px">用手机扫描二维码，可在手机上查看</div>
+                <img id="Qcode" src="" style="width:100%;height:100%"/>
+            </div>
+        </div>
+ 
+
+    <script>
+    //显示灰色 jQuery 遮罩层 
+     function showBg() {
+        var url = window.location.href;
+        var par=url.split("?")[1];
+        $.post("./servlet/Qcode",
+            {
+                'par': par
+            },
+            function (data, status) {
+               // alert(data);
+                $('#Qcode').attr("src",data);
+                var bh = $("body").height();
+                var bw = $("body").width();
+                $("#fullbg").css({
+                    height: bh,
+                    width: bw,
+                    display: "block"
+                });
+                $("#dialog").show();
+            });
+
+            
+    } 
+    //关闭灰色 jQuery 遮罩 
+    function closeBg() { 
+        $("#fullbg,#dialog").hide(); 
+    } 
+ 
+
+
+    </script>
+
+
+
+
+    <!--底部-->
+    <div class="footer" style="margin-bottom:0px">
+        <div class="wrap">
+            <div class="footer-left">
+                <div class="copy">
+                    <p>Copyright &copy; 2014.SuperCally All rights reserved.</p>
+                </div>
+            </div>
+
+            <div class="clear"> </div>
+        </div>
+        <!--底部-->
+        <!-- scroll_top_btn -->
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                };
+
+
+                $().UItoTop({ easingType: 'easeOutQuart' });
+
+            });
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+                });
+            });
+        </script>
+        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+
+    <script>
+
+        $(document).ready(seveshare);
+    </script>
+
+</body>
+</html>

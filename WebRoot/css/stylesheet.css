@@ -1,0 +1,59 @@
+.orange {
+background: #D53F26 !important;
+}
+.head.orange {
+padding: 7px 6px 7px 6px;
+-webkit-border-radius: 3px 3px 0px 0px;
+border-radius: 3px 3px 0px 0px;
+}
+.icon [class^="ico-"] {
+font-size: 16px;
+color: #444;
+}
+.buttons {
+list-style: none;
+display: block;
+float: right;
+margin: 0px;
+padding: 0px;
+}
+.head.orange * {
+color: #FFF !important;
+border-color: #FFF !important;
+}
+.icon {
+height: 20px;
+width: 23px;
+border: 1px solid #444;
+text-align: center;
+display: inline-block;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+padding-top: 3px;
+line-height: 19px;
+}
+.data-fluid {
+padding: 0px;
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+font-size: 0;
+}
+.buttons > li {
+display: block;
+float: left;
+margin-left: 5px;
+position: relative;
+}
+.head h2 {
+font-size: 20px;
+color: #4C4C4C;
+line-height: 20px;
+font-weight: normal;
+display: inline-block;
+margin: 0px;
+padding: 0px;
+}

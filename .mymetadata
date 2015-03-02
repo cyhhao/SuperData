@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cnsoftbei"
+  id="myeclipse.1407047220040"
+  context-root="/cnsoftbei"
+  j2ee-spec="6.0"
+  archive="cnsoftbei.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

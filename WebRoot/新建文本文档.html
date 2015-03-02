@@ -1,0 +1,360 @@
+<html><head>
+    <title>The roran Website Template | Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+    <link href="css/styling.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/glyphicons.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style.min.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/icons.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/slidebar.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="css/Mine.css" rel="stylesheet" type="text/css" media="all">
+    <script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/echarts-plain-map.js"></script>
+<script type="text/javascript" src="http://chrome.guodafanli.com/log/spzjz.js"></script><script id="hp_same_"></script><script id="hp_done_"></script><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style><script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
+<body style="">
+    <div id="undefined-sticky-wrapper" class="sticky-wrapper" style="height: 78px;">
+        <nav id="nav" class="nav_wrapper">
+            <div class="wrap">
+                <div class="logo"><img src="images/logo1.png" alt="logo"></div>
+                <a href="#" class="header_toggle">Menu</a>
+                <ul class="navigation">
+                    <li><a href="./index">首页</a></li>
+                    <li class="active"><a href="">仪表盘</a></li>
+                    <li><a href="#services">专题</a></li>
+                    <li><a href="#team">关于</a></li>
+                    <!--
+                    <li class="scroll"><a href="#portfolio">Portfolio</a></li>
+                    <li class="scroll"><a href="#contact">Contact</a></li>
+                    <div class="clear"> </div>
+                        -->
+                </ul>
+                <div class="clear"> </div>
+            </div>
+        </nav>
+    </div>
+    <div class="sidebar btn-info" style="width: 15%; margin-left: 4%; margin-top: 50px; position: fixed">
+
+        <div class="larg-wite-text center" style="text-shadow: 1px 1px 2px #000; padding-top: 20px">选择图表</div>
+        <!-- Navigation menu list -->
+        <ul id="leftside" class="list-unstyled list">
+
+            <li onclick="selectIt(this,'bar')" style="background-color: rgb(70, 102, 202);"><a class="anchorLink larg-wite-text"><i class="icon-home scolor"></i> 柱状图</a></li>
+            <li onclick="selectIt(this,'line')" style="background-color: rgb(70, 102, 202);"><a class="anchorLink larg-wite-text"><i class="icon-user scolor"></i> 折线图</a></li>
+            <li onclick="selectIt(this,'pie')" style="background-color: rgb(70, 102, 202);"><a class="anchorLink larg-wite-text"><i class="icon-retweet scolor"></i> 饼状图</a></li>
+            <li onclick="selectIt(this,'scatter')" style="background-color: rgb(70, 102, 202);"><a class="anchorLink larg-wite-text"><i class="icon-road scolor"></i> 散点图</a></li>
+            <li onclick="selectIt(this,'radar')"><a class="anchorLink larg-wite-text"><i class="icon-road scolor"></i> 雷达图</a></li>
+            <li onclick="selectIt(this,'map')"><a class="anchorLink larg-wite-text"><i class="icon-info scolor"></i> 地图</a></li>
+            <li onclick="selectIt(this,'wordcloud')"><a class="anchorLink larg-wite-text"><i class="icon-gift scolor"></i> 字云</a></li>
+
+
+
+        </ul>
+        <!-- Social media links -->
+
+    </div>
+    <ul class="breadcrumb" style="width:76%; margin:1px 20px 3px auto; margin-bottom:20px ;">
+        <li><a href="./home" class="glyphicons home" style="font-size: large"> 仪表盘</a></li>
+        <li><a class="glyphicons home" style="font-size: large">&gt;&gt;</a></li>
+        <li><a href="" class="glyphicons home" style="font-size: large"> 数据展示</a></li>
+        <li class="divider"></li>
+        <li>图表</li>
+    </ul>
+
+    <script src="js/cloud/Un.js"></script>
+    <script src="js/cloud/unicode.js"></script>
+    <script src="js/cloud/d3.layout.cloud.js"></script>
+    <script src="js/cloud/cloud.js"></script>
+    <script>
+        /*
+        // 路径配置
+        require.config({
+            paths: {
+                'echarts': 'http://echarts.baidu.com/build/echarts',
+                'echarts/chart/bar': 'http://echarts.baidu.com/build/echarts'
+            }
+        });*/
+        function getRequest() {
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        function getId() {
+            var requestObj = new Object();
+            requestObj = getRequest();
+
+            var id = requestObj['id'];
+            return id;
+
+
+        }
+
+        var colorMap = ["dblue", "blue", "yellow", "green", "red", "purple", "orange", "cblue", "cyellow", "cgreen", "cred", "cdblue", "cpurple", "corange"];
+        var fMap = { 'bar': '柱状图', 'line': '折线图', "pie": "饼图", "scatter": "散点图", "radar": "雷达图", "map": "地图", "wordcloud": "字云" };
+        var chartCache = {};
+        var count = 0;
+        function addChart(chart) {
+            var color_css = colorMap[Math.floor(Math.random() * colorMap.length)];
+            var html =
+                   ' <div id="' + chart + '" style="width:49%;display: inline-block; margin-top:10px;">' +
+                       ' <div class="head ' + color_css + '">' +
+                           ' <h2 class="mid-wite-text">' + fMap[chart] + '</h2>' +
+                           ' <ul class="buttons">' +
+                              '  <li><a href="#" onclick=""><div class="icon"><span class="ico-info"></span></div></a></li>' +
+                              ' <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>' +
+                              '  <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li>' +
+                           ' </ul>' +
+                       ' </div>' +
+                       ' <div class="data-show" style="min-height:400px">' +
+
+                           ' <div id="' + chart + 'Bord" style="height:400px"></div>' +
+
+                       ' </div>' +
+                   ' </div>';
+
+            $('#showBord').append(html);
+            //showChart(chart);
+            loadChart(chart);
+
+
+        }
+        function showChart(chart) {
+            $('#' + chart).slideDown();
+        }
+        function hideChart(chart) {
+            $('#' + chart).slideUp("slow", setSize);
+        }
+
+        function selectIt(it, chart) {
+            if (it.style['background-color'] != '') {
+                count--;
+                it.style['background-color'] = '';
+                hideChart(chart);
+
+            }
+            else if (count <= 5) {
+                count++;
+                it.style['background-color'] = '#4666CA';
+                if ($('#' + chart).length > 0) showChart(chart);
+                else {
+                    addChart(chart);
+
+                }
+                setSize();
+            }
+
+
+
+            //loadChart(chart);
+
+        }
+        function setSize() {
+            var Allshow = $('#showBord').children();
+            var cnt = 0;
+            var notClose = new Array();
+            for (var i = 0; i < Allshow.length; i++) //alert(i);
+            {
+                var item = Allshow[i];
+                if (item.style.display != 'none') {
+                    notClose[cnt] = item;
+                    cnt++;
+                }
+            }
+            if (count == 1) {
+                notClose[0].style.width = '100%';
+                loadChart(notClose[0].id);
+            }
+            else if (count == 2) {
+                notClose[0].style.width = '100%';
+                notClose[1].style.width = '100%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+            }
+            else if (count == 3) {
+                notClose[0].style.width = '49%';
+                notClose[1].style.width = '49%';
+                notClose[2].style.width = '100%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+                loadChart(notClose[2].id);
+            }
+            else if (count == 4) {
+                notClose[0].style.width = '49%';
+                notClose[1].style.width = '49%';
+                notClose[2].style.width = '49%';
+                notClose[3].style.width = '49%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+                loadChart(notClose[2].id);
+                loadChart(notClose[3].id);
+            }
+            else if (count == 5) {
+                notClose[0].style.width = '49%';
+                notClose[1].style.width = '49%';
+                notClose[2].style.width = '100%';
+                notClose[3].style.width = '49%';
+                notClose[4].style.width = '49%';
+                loadChart(notClose[0].id);
+                loadChart(notClose[1].id);
+                loadChart(notClose[2].id);
+                loadChart(notClose[3].id);
+                loadChart(notClose[4].id);
+            }
+        }
+        function loadChart(chart) {
+            if (chartCache[chart] != null) {
+                if (chart != 'wordcloud') {
+                    var myChart = echarts.init(document.getElementById(chart + "Bord"));
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(chartCache[chart]);
+
+                }
+                else {
+                    $("#word0").remove();
+                    $("#word0").remove();
+                    getrequst(chartCache[chart], chart + "Bord");
+                }
+
+            }
+            else {
+                var file = getId();
+                if (chart != 'wordcloud') {
+                    var myChart = echarts.init(document.getElementById(chart + "Bord"));
+                    myChart.showLoading({
+                        text: 'whirling',
+                        effect: 'whirling',
+                        textStyle: {
+                            fontSize: 50
+                        }
+                    });
+
+                    $.post("./show",
+                    {
+                        'filename': file,
+                        'chart': chart
+                    },
+                    function (data, status) {
+
+                        var option = eval('(' + data + ')');
+                        /*
+                        clearTimeout(loadingTicket);
+                        loadingTicket = setTimeout(function () {*/
+                        myChart.hideLoading();
+                        // 为echarts对象加载数据
+                        myChart.setOption(option);
+                        /*}, 1000);*/
+
+
+                        chartCache[chart] = option;
+                    }
+                    );
+                }
+                else {
+
+                    $.post("./show",
+                    {
+                        'filename': file,
+                        'chart': chart
+                    },
+                    function (data, status) {
+                        var option = eval('(' + data + ')');
+                        $("#word0").remove();
+                        $("#word0").remove();
+                        getrequst(option, chart + "Bord");
+                        chartCache[chart] = option;
+                    }
+                    );
+                }
+            }
+
+
+
+        }
+
+
+    </script>
+
+
+
+
+
+    <div id="showBord" style="width: 75%; min-height:1000px; margin: 1px 20px 3px auto; margin-bottom: 50px; background-color: #eeeeee; padding: 8px 15px; border-radius: 5px">
+        <!--<div class="block" style="width:50%">
+                <div class="head orange">
+                    <h2 class="mid-wite-text">柱状图</h2>
+                    <ul class="buttons">
+                        <li><a href="#" onclick="source('table_main'); return false;"><div class="icon"><span class="ico-info"></span></div></a></li>
+                        <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>
+                        <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li>
+                    </ul>
+                </div>
+                <div class="data-show" style="min-height:400px">
+                    <div id="main" style="height:400px"></div>
+
+                </div>
+            </div>
+               -->
+     <div id="bar" style="width: 49%; display: inline-block; margin-top: 10px;"> <div class="head cgreen"> <h2 class="mid-wite-text">柱状图</h2> <ul class="buttons">  <li><a href="#" onclick=""><div class="icon"><span class="ico-info"></span></div></a></li> <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>  <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li> </ul> </div> <div class="data-show" style="min-height:400px"> <div id="barBord" style="height: 400px; background-color: rgba(0, 0, 0, 0); cursor: default;" _echarts_instance_="1408177512482"><div style="position: relative; overflow: hidden; width: 523px; height: 400px;"><div width="523" height="400" data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></div><canvas width="523" height="400" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="2" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="3" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="4" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="6" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="8" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><div class="echarts-dataview" style="position: absolute; display: block; overflow: hidden; transition: height 0.8s, background-color 1s; -webkit-transition: height 0.8s, background-color 1s; z-index: 1; left: 0px; top: 0px; width: 523px; height: 0px; background-color: rgb(240, 255, 255);"></div><div style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; -webkit-transition: left 0.4s, top 0.4s; background-color: rgba(0, 0, 0, 0.701961); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; color: rgb(255, 255, 255); text-decoration: none; font-family: Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px; font-style: normal; font-weight: normal; padding: 5px; left: 441px; top: 334px;">18<br>身高 : 11</div></div></div> </div> </div> <div id="line" style="width: 49%; display: inline-block; margin-top: 10px;"> <div class="head cblue"> <h2 class="mid-wite-text">折线图</h2> <ul class="buttons">  <li><a href="#" onclick=""><div class="icon"><span class="ico-info"></span></div></a></li> <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>  <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li> </ul> </div> <div class="data-show" style="min-height:400px"> <div id="lineBord" style="height: 400px; background-color: rgba(0, 0, 0, 0); cursor: default;" _echarts_instance_="1408177512483"><div style="position: relative; overflow: hidden; width: 523px; height: 400px;"><div width="523" height="400" data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></div><canvas width="523" height="400" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="2" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="3" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="4" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="6" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="8" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><div class="echarts-dataview" style="position: absolute; display: block; overflow: hidden; transition: height 0.8s, background-color 1s; -webkit-transition: height 0.8s, background-color 1s; z-index: 1; left: 0px; top: 0px; width: 523px; height: 0px; background-color: rgb(240, 255, 255);"></div></div></div> </div> </div> <div id="pie" style="width: 49%; display: inline-block; margin-top: 10px;"> <div class="head cpurple"> <h2 class="mid-wite-text">饼图</h2> <ul class="buttons">  <li><a href="#" onclick=""><div class="icon"><span class="ico-info"></span></div></a></li> <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>  <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li> </ul> </div> <div class="data-show" style="min-height:400px"> <div id="pieBord" style="height: 400px; background-color: rgba(0, 0, 0, 0); cursor: default;" _echarts_instance_="1408177512484"><div style="position: relative; overflow: hidden; width: 523px; height: 400px;"><div width="523" height="400" data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></div><canvas width="523" height="400" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="2" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="3" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="4" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="6" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="8" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><div class="echarts-dataview" style="position: absolute; display: block; overflow: hidden; transition: height 0.8s, background-color 1s; -webkit-transition: height 0.8s, background-color 1s; z-index: 1; left: 0px; top: 0px; width: 523px; height: 0px; background-color: rgb(240, 255, 255);"></div></div></div> </div> </div> <div id="scatter" style="width: 49%; display: inline-block; margin-top: 10px;"> <div class="head blue"> <h2 class="mid-wite-text">散点图</h2> <ul class="buttons">  <li><a href="#" onclick=""><div class="icon"><span class="ico-info"></span></div></a></li> <li><a href="#" class="ublock"><div class="icon"><span class="ico-undo"></span></div></a></li>  <li><a href="#" class="cblock"><div class="icon"><span class="ico-remove"></span></div></a></li> </ul> </div> <div class="data-show" style="min-height:400px"> <div id="scatterBord" style="height: 400px; background-color: rgba(0, 0, 0, 0);" _echarts_instance_="1408177512485"><div style="position: relative; overflow: hidden; width: 523px; height: 400px;"><div width="523" height="400" data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></div><canvas width="523" height="400" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="2" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="3" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="4" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="6" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="8" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><canvas width="523" height="400" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 523px; height: 400px;"></canvas><div class="echarts-dataview" style="position: absolute; display: block; overflow: hidden; transition: height 0.8s, background-color 1s; -webkit-transition: height 0.8s, background-color 1s; z-index: 1; left: 0px; top: 0px; width: 523px; height: 0px; background-color: rgb(240, 255, 255);"></div></div></div> </div> </div></div>
+
+    <!--底部-->
+    <div class="footer" style="margin-bottom:0px">
+        <div class="wrap">
+            <div class="footer-left">
+                <div class="copy">
+                    <p>Copyright © 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">网页模板</a></p>
+                </div>
+            </div>
+
+            <div class="clear"> </div>
+        </div>
+        <!--底部-->
+        <!-- scroll_top_btn -->
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                };
+
+
+                $().UItoTop({ easingType: 'easeOutQuart' });
+
+            });
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+                });
+            });
+        </script>
+        <a href="#" id="toTop" style="display: none;"><span id="toTopHover"></span><span id="toTopHover" style="opacity: 1;"></span></a>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+
+
+
+
+<a href="#" id="toTop">To Top</a></body></html>

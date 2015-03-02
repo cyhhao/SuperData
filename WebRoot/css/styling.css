@@ -1,0 +1,30 @@
+.head.dblue{background: #005683 !important;}
+.head.blue{background: #009AD7 !important;}
+.head.yellow{background: #FFAA31 !important;}
+.head.green{background: #68AF27 !important;}
+.head.red{background: #C22439 !important;}
+
+.head.purple{background: #673499 !important;}
+.head.orange{background: #D53F26 !important;}
+
+.head.cblue{background: #009AD7 !important;}
+.head.cyellow{background: #FFAA31 !important;}
+.head.cgreen{background: #68AF27 !important;}
+.head.cred{background: #C22439 !important;}
+.head.cdblue{background: #005683 !important;}
+.head.cpurple{background: #673499 !important;}
+.head.corange{background: #D53F26 !important;}
+
+
+
+.head{
+
+    padding: 7px 6px 7px 6px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0px 0px;
+    
+}
+.head * {
+color: #FFF !important;
+border-color: #FFF !important;
+}

@@ -1,0 +1,16 @@
+library(Rwordseg)
+library(stringr)
+library(rJava)
+minedFile <- file("H:/kc2.0/myeclipse/cnsoftbei/path/nameOfFileToBeMined.txt", "r")
+fullFileName=readLines(minedFile,n=1)
+close(minedFile)
+con <- file( fullFileName, "r")
+line=readLines(con,n=1)
+d <- c()
+while( length(line) != 0 ) {
+     a <- segmentCN(line)
+	d <- c( d, a )
+     line=readLines(con,n=1)
+}
+write.table(d,file = "H:/kc2.0/myeclipse/cnsoftbei/path/rst.txt", row.names=F,quote = F, fileEncoding = "UTF-8")
+close(con)

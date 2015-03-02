@@ -1,0 +1,53 @@
+
+#updiv{
+    display: none; 
+    margin-top:5px; 
+
+    margin-bottom:0px; 
+    width:40%;
+    float:right;
+}
+.btntext{
+	font-size: 16px;
+	font-family: 'Microsoft YaHei UI';
+    text-shadow:none;
+}
+.awite-none{
+    text-decoration:none;
+    color:white;
+}
+.awite-none:hover{
+    text-decoration:none;
+    color:white;
+}
+.zhai-td{
+    width:30px
+}
+.mid-wite-text{
+    color:white;
+    font-size: 15px;
+	font-family: 'Microsoft YaHei UI';
+    text-shadow:none;
+}
+.larg-wite-text{
+    color:white;
+    font-size: 20px;
+	font-family: 'Microsoft YaHei UI';
+    text-shadow: none;
+}
+.center{
+    text-align:center;
+}
+.data-show{
+    background-color: white;
+}
+.mid-text{
+    font-size: 15px;
+    font-family: 'Microsoft YaHei UI';
+    text-shadow:none;
+}
+.larg-text{
+    font-size: 20px;
+    font-family: 'Microsoft YaHei UI';
+    text-shadow:none;
+}
